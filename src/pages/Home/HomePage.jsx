@@ -5,15 +5,14 @@ import { Transition } from '../../components';
 export const HomePage = () => {
     useTitle(`Home`)
     return (
-        <div className='h-screen bg-black ' >
+        <main className='h-screen bg-black  ' >
             <Transition  >
-
-                <div  >
-                    in the Home page
-
+                <div>
+                    <Hero />
                 </div>
+
             </Transition>
-        </div>
+        </main>
 
     )
 }

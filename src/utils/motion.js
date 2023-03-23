@@ -75,3 +75,19 @@ export const listVaritions  = {
     }
     }
 }
+export const seacrhBarParentVar = {
+    hidden:{
+        
+        opacity:0,
+        
+        
+    },
+    visible:{
+        
+        opacity:1,
+        
+       
+    
+    }
+
+} 
