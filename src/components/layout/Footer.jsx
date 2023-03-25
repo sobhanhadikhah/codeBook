@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { fotterVar } from "../../utils/motion"
 export const Footer = () => {
     return (
-        <footer aria-label="Site Footer" className="bg-white dark:bg-black  ">
+        <footer aria-label="Site Footer" className="bg-white dark:bg-black pt-10  ">
             <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-md">
                     <strong
@@ -19,11 +19,11 @@ export const Footer = () => {
                                 className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pr-32 text-sm font-medium dark:border-gray-700 dark:bg-gray-800 dark:text-white"
                                 id="email"
                                 type="email"
-                                placeholder="john@doe.com"
+                                placeholder="example@gmail.com"
                             />
 
                             <button
-                                className="absolute top-1/2 right-1 -translate-y-1/2 rounded-full bg-blue-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700"
+                                className="absolute top-1/2 right-1 -translate-y-1/2 rounded-full bg-gradient-to-br from-pink-700 to-purple-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700"
                             >
                                 Subscribe
                             </button>

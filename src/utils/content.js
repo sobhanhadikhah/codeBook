@@ -15,3 +15,25 @@ export const NavbarContent = [
         path:"about"
     },
 ]
+export const questionContent = [
+    {
+        id:"qu1",
+        question:"How much is this plane ?",
+        ansawre:"for you expensive."
+    },
+    {
+        id:"qu2",
+        question:"How much is this plane ?",
+        ansawre:"for you expensive."
+    },
+    {
+        id:"qu3",
+        question:"How much is this plane ?",
+        ansawre:"for you expensive."
+    },
+    {
+        id:"qu4",
+        question:"How much is this plane ?",
+        ansawre:"for you expensive."
+    },
+] 

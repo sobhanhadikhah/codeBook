@@ -18,8 +18,8 @@ export const Terminal = (props) => {
                     </div>
 
                 </div>
-                <div className="pl-1 pt-1 h-full relative bg-opacity-60  text-green-200 font-mono text-xs bg-black" id="console">
-                    <p className="pb-1">{p1}</p>
+                <div className="pl-1 pt-1 h-full relative bg-opacity-60  text-green-200 font-mono text-xs bg-black bg-blend-overlay" id="console">
+                    <p className="pb-1">{p1}  </p>
                     <p className="pb-1">{p2}</p>
                 </div>
             </div>

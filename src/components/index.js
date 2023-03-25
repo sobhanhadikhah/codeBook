@@ -5,3 +5,7 @@ export {SerchBar} from "./elemnts/SerchBar"
 export {ButttonGlowing} from "./elemnts/btnGlowing"; 
 export {Tooltip}    from    "./elemnts/Tooltip"
 export {Terminal} from "./elemnts/Terminal"
+export {ProductsCart} from "./elemnts/ProductsCart";
+export {CategoryItem} from "./elemnts/categoryItem";
+export {TesttomotionCard} from "./elemnts/TesttomotionCard";
+export {FaqSideBar} from "./elemnts/faqSideBar";

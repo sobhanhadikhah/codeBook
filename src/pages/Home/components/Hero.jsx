@@ -4,7 +4,7 @@ import { ButttonGlowing, Terminal, Tooltip } from "../../../components";
 export const Hero = () => {
     return (
 
-        <div className=" max-w-[1240px] mx-auto font-SFPRODISPLAYMEDIUM " >
+        <section className=" max-w-[1240px] mx-auto font-SFPRODISPLAYMEDIUM " >
             <section className="text-gray-600 body-font">
                 <div className="container mx-auto flex px-5 min-h-screen items-center justify-center flex-col">
                     {/* terminal */}
@@ -27,6 +27,6 @@ export const Hero = () => {
             </section>
 
 
-        </div>
+        </section>
     )
 }

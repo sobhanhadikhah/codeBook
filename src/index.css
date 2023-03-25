@@ -35,3 +35,15 @@
     background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
     filter: blur(900px);
   }
+  .neonText {
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px purple,
+        0 0 82px blueviolet,
+        0 0 92px #0fa,
+        0 0 102px purple,
+        0 0 151px white;
+  }
