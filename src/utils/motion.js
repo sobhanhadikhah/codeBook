@@ -91,3 +91,13 @@ export const seacrhBarParentVar = {
     }
 
 } 
+export const filterBarNavVar = {
+    hidden:{
+        opacity:0,
+        x:-1000
+    },
+    visible:{
+        opacity:1,
+        x:0
+    }
+}

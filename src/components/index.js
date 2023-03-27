@@ -5,7 +5,11 @@ export {SerchBar} from "./elemnts/SerchBar"
 export {ButttonGlowing} from "./elemnts/btnGlowing"; 
 export {Tooltip}    from    "./elemnts/Tooltip"
 export {Terminal} from "./elemnts/Terminal"
-export {ProductsCart} from "./elemnts/ProductsCart";
+export {ProductsCart} from "../pages/products/components/ProductsCart";
 export {CategoryItem} from "./elemnts/categoryItem";
 export {TesttomotionCard} from "./elemnts/TesttomotionCard";
 export {FaqSideBar} from "./elemnts/faqSideBar";
+export {Loading} from "./layout/loading";
+export {ErrorMessege} from "./layout/ErrorMessege";
+export {Rating} from "./elemnts/Rating"
+export {ScrollToTop} from "./others/ScrollToTop"

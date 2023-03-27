@@ -1,0 +1,1 @@
+export {ShopibgPage} from "./ShopibgPage"

@@ -3,8 +3,8 @@ export const Terminal = (props) => {
     const { p1, p2 } = props
     return (
 
-        <div className="w-1/2 mx-auto">
-            <div className="w-full group relative shadow-2xl subpixel-antialiased rounded h-64 bgsa border-black mx-auto">
+        <div className="w-full mx-auto  ">
+            <div className="w-full group relative shadow-2xl subpixel-antialiased rounded h-64 lg:h-[33rem] bgsa border-black mx-auto">
                 <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 opacity-75 blur transition duration-500 group-hover:opacity-100"></div>
                 <div className="flex relative items-center h-6 rounded-t bg-gray-100 border-b border-gray-500 text-center text-black" id="headerTerminal">
                     <div className="flex ml-2 items-center text-center border-red-900 bg-red-500 shadow-inner rounded-full w-3 h-3" id="closebtn">
