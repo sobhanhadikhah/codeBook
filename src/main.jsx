@@ -6,7 +6,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './featcures/store';
 import { ScrollToTop } from './components';
-import { FilterProvider } from './context';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>

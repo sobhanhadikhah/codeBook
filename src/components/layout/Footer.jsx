@@ -31,7 +31,7 @@ export const Footer = () => {
                     </form>
                 </div>
 
-                <motion.div variants={fotterVar} initial="hidden" whileInView="visible" className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
+                <motion.div variants={fotterVar} initial="hidden" animate="visible" className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
                     <div className="mx-auto max-w-sm lg:max-w-none">
                         <p
                             className="mt-4 text-center text-gray-500 dark:text-gray-400 lg:text-left lg:text-lg"
