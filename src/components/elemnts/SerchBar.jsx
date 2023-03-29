@@ -38,12 +38,13 @@ export const SerchBar = ({ setSerchToggle, serchToggle }) => {
                                 className="bg-transparent text-white font-SFPRODISPLAYMEDIUM text-3xl outline-none focus:outline-none placeholder:text-gray-400 p-3 w-full " />
 
                         </form>
-                        <div className="" >
+                        <div className="max-h-[30vh]  overflow-auto flex flex-col " >
                             {items && items.map(({ title, id }) => {
-                                return <Link onClick={() => setSerchToggle(!serchToggle)} to={`/products/${id}`} key={nanoid()} >{title}</Link>
+                                return <Link className="hover:underline" onClick={() => setSerchToggle(!serchToggle)} to={`/products/${id}`} key={nanoid()} >{title}</Link>
                             })}
 
                         </div>
+
                     </div>
                 </div>
             </div>

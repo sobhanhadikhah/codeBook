@@ -21,9 +21,9 @@ export const NavHumbergerVar = {
         y:0,
         transition: {
             type: "tween",
-            duration: 0.5,
-            delayChildren: 0.3,
-            staggerChildren: 0.5
+            duration: 0.3,
+            delayChildren: 0.2,
+            staggerChildren: 0.3
           }
     },
     
@@ -99,5 +99,13 @@ export const filterBarNavVar = {
     visible:{
         opacity:1,
         x:0
+    }
+}
+const feutchersParents= {
+    hidden:{
+        
+    },
+    visible:{
+
     }
 }

@@ -1,21 +1,21 @@
-import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import { useCallback, useEffect, useState } from "react"
 import { FilterBar } from './components';
 import { useTitle } from '../../hooks';
 import { useGetshopbyNameQuery } from '../../services/fakeShop';
 import { Loading, ProductsCart, Transition } from '../../components'
 import { CgMenuGridO } from 'react-icons/cg'
-import { useLocation } from "react-router-dom";
+import { addToProducts } from "../../featcures/cartSlice";
 export const Products = () => {
-    const search = useLocation().search;
-    const serchTeam = new URLSearchParams(search).get(`q`)
-    console.log(serchTeam);
+    const disPatch = useDispatch();
+    const Products = useSelector(state => state.cartState.products);
     const { data, status, isLoading } = useGetshopbyNameQuery(`products`)
     const [FilterBarToggle, setFilterBarToggle] = useState(false);
     const handleOnFilterBar = () => {
         setFilterBarToggle(!FilterBarToggle)
     }
-    console.log(data);
     useTitle(`Products`)
+
     return (
         <div className=' bg-black   ' >
             <Transition  >
@@ -32,8 +32,8 @@ export const Products = () => {
                         </span>
                     </div>
                     <div className=' flex flex-wrap mx-3  gap-2 justify-center  ' >
-                        {data ? data.map(items => {
-                            return <ProductsCart key={items.id}  {...items} />
+                        {data ? Products.map(items => {
+                            return <h1>{items.title}</h1>
                         }) : <Loading />}
 
                     </div>
