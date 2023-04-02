@@ -1,12 +1,31 @@
-import React from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { Rating, Transition } from '../../../components';
+import { Rating, Tooltip, Transition } from '../../../components';
 import { useTitle } from '../../../hooks';
+import { useDispatch, useSelector } from 'react-redux';
+import { MdFavorite } from "react-icons/md"
 import { Link } from 'react-router-dom';
+import { addToFavorites, removeFromFavorite } from '../../../featcures/cartSlice';
+import { useState } from 'react';
 export const ShopibgPage = (props) => {
-    const { title, id, image, price, description, rating, category } = props
+    const { title, id, image, price, description, rating, category, } = props;
+    const disPatch = useDispatch()
     useTitle(title)
+    const [favoretStatus, setFavoretStatus] = useState(false)
+    const { Favorites } = useSelector(state => state.cartState)
+    const handleOnFavorite = () => {
+        const fav = Favorites.filter((items) => {
+            return items.id === id
+        })
+        console.log(fav);
+        if (fav) {
+            disPatch(addToFavorites({ data: props, fav: true }))
+        }
+        else {
+            disPatch(removeFromFavorite(id))
+
+        }
+    }
     return (
         <div className='bg-black font-SFPRODISPLAYMEDIUM  ' >
             <Transition>
@@ -162,8 +181,14 @@ export const ShopibgPage = (props) => {
                                             */}
                                     <fieldset>
                                         {/* <legend className="text-lg font-bold">Material</legend> */}
-                                        <Rating rating={rating.rate} />
+                                        <div className='flex flex-col justify-start' >
+                                            <Rating rating={rating.rate} />
+                                            {/* adding to favoirte page */}
 
+                                            <MdFavorite className={`hover:text-red-700 ${favoretStatus ? "text-red-500" : "text-white"} cursor-pointer `} size={30} onClick={handleOnFavorite} />
+
+
+                                        </div>
                                         <div className="mt-2 flex flex-wrap gap-1">
                                             <label htmlFor="material_cotton" className="cursor-pointer">
                                                 <input

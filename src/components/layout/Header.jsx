@@ -39,8 +39,12 @@ export const Header = () => {
                             <AiFillShopping size={25} className="cursor-pointer   " />
                         </div>
                         |
-                        <button className="bg-sky-500 px-3 flex justify-center items-center text-center font-SFPRODISPLAYMEDIUM py-1 transition duration-150 ease-in-out rounded-md  text-sm hover:bg-sky-600  " >SignIn</button>
-                        <button className=" px-3 flex tracking-widest justify-center items-center text-center py-1 rounded-md font-SFPRODISPLAYMEDIUM hover:bg-purple-600 text-sm transition duration-150 ease-in-out  " >signUp</button>
+                        <Link to={``} className="bg-sky-500 px-3 flex justify-center items-center text-center font-SFPRODISPLAYMEDIUM py-1 transition duration-150 ease-in-out rounded-md  text-sm hover:bg-sky-600  " >
+                            SignIn
+                        </Link>
+                        <Link to={`/signup`} className=" px-3 flex tracking-widest justify-center items-center text-center py-1 rounded-md font-SFPRODISPLAYMEDIUM hover:bg-purple-600 text-sm transition duration-150 ease-in-out  " >
+                            signUp
+                        </Link>
 
                     </ul>
 

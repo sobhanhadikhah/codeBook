@@ -24,7 +24,7 @@ export const ProductsCart = (props) => {
                     <div
                         className={`cart-btn absolute top-3 right-3 p-1 text-[28px] bg-white rounded-[0.3rem] hover:bg-primaryColor hover:text-purple-400 `}>
                         <div className="text-black hover:text-red-500" >
-                            <MdFavorite onClick={() => disPatch(addToFavorites({ title: title }))} />
+                            {/* <MdFavorite onClick={() => disPatch(addToFavorites({ title: title }))} /> */}
                         </div>
                     </div>
 

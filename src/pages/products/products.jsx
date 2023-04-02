@@ -30,11 +30,11 @@ export const Products = () => {
     return (
         <div className=' bg-black   ' >
             <Transition  >
-                <FilterBar intialData={data} FilterBarToggle={FilterBarToggle} />
+                <FilterBar intialData={data} FilterBarToggle={FilterBarToggle} setFilterBarToggle={setFilterBarToggle} />
                 <section className='py-5 max-w-[1240px] mx-auto ' >
                     <div className='my-5 mx-3 flex justify-between' >
                         <span className='text-2xl font-semibold mb-4' >
-                            All Products ({data ? data.length : null})
+                            All Products ({products ? products.length : null})
                         </span>
                         <span>
                             <button className='inline-block' >

@@ -37,3 +37,35 @@ export const questionContent = [
         ansawre:"for you expensive."
     },
 ] 
+export const filterBarPrice =[
+    {
+        id:"lowToHight",
+        title:"Low To High",
+        type:"lowPriceToHigh",
+
+
+    },
+    {
+        id:"highPriceToLow",
+        title:"high To low",
+        type:"highPriceToLow",
+
+
+    },
+]
+export const filterBarRate =[
+    {
+        id:"lowRateToHigh",
+        title:"low To High",
+        type:"lowRateToHigh",
+
+
+    },
+    {
+        id:"highRateToLow",
+        title:"high To low",
+        type:"highRateToLow",
+
+
+    },
+]
