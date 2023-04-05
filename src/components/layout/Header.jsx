@@ -9,6 +9,7 @@ import { NavHumbergerVar, NavLargParentVar, listVaritions, seacrhBarParentVar } 
 import { AiFillShopping } from "react-icons/ai";
 import { IoIosSearch } from "react-icons/io"
 import { SerchBar } from "../elemnts/SerchBar";
+import { ButttonGlowing } from "../elemnts/btnGlowing";
 
 
 
@@ -61,7 +62,7 @@ export const Header = () => {
             <motion.div variants={NavHumbergerVar}
                 initial="hidden" animate={NavToggle ? "visible" : "hidden"}
 
-                className=" absolute top-0 lg:hidden   justify-start w-screen z-50 h-screen  bg-black   " >
+                className=" absolute top-0 lg:hidden    w-screen z-50 h-screen  bg-black   " >
 
                 <TfiClose size={25} onClick={() => setNavToggle(!NavToggle)} className="right-0  absolute mr-3 mt-8  " />
                 <ul className="   grid grid-flow-row   gap-4 pl-8 pt-20   justify-start text-[#e8e8ed] text-[28px]
@@ -71,7 +72,20 @@ export const Header = () => {
                             <Link onClick={() => setNavToggle(!NavToggle)} className=" text-3xl font-SFPRODISPLAYMEDIUM " to={path} >{title}</Link>
                         </motion.li>
                     )}
+                    <div className="flex absolute bottom-7 flex-col gap-8 text-base justify-center items-center   " >
+                        <div className="flex items-center justify-center " >
+                            <ButttonGlowing to={`/signup`} onClick={() => setNavToggle(!NavToggle)} >
+                                Sign Up
+                            </ButttonGlowing>
+                        </div>
+                        <ButttonGlowing>
+                            Sign In
+                        </ButttonGlowing>
+
+                    </div>
                 </ul>
+
+
             </motion.div>
             {/* search bar */}
             {serchToggle ? <SerchBar serchToggle={serchToggle} setSerchToggle={setSerchToggle} /> : null}
