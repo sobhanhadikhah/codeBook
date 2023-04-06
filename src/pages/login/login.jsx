@@ -1,13 +1,14 @@
 import { Transition } from "../../components"
 import { FormSignIn } from "./components/form";
 import { intialVaues, validitionSchema } from "../../schema/validition";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-export const SignUp = () => {
+import { useState } from "react";
+export const Login = () => {
     const navigate = useNavigate()
+    const [btnDisable, setBtnDisable] = useState(false)
     const handleOnSubmite = async (value) => {
         try {
             const option = {
@@ -15,14 +16,21 @@ export const SignUp = () => {
                 method: "POST",
                 data: value
             }
+            setBtnDisable(true)
+
             console.log(value);
             const { data } = await axios.request(option)
             console.log(data);
-            localStorage.setItem(`token`, data.token);
-            toast.success(`sucsses`)
-            navigate(`/`)
+            setBtnDisable(true)
+            sessionStorage.setItem(`token`, data.token)
+            setTimeout(async () => {
+                toast.success(`sucsses`)
+                navigate(`/`)
+            }, 3000);
+
 
         } catch (error) {
+            setBtnDisable(false);
             console.log(`wrong`);
             console.log(error);
             toast.error(`somthing wrong please try agine`);
@@ -37,8 +45,8 @@ export const SignUp = () => {
     })
     return (
         <Transition>
-            <FormSignIn formik={formik} />
-            <ToastContainer />
+            <FormSignIn btnDisable={btnDisable} formik={formik} />
+
         </Transition>
     )
 }

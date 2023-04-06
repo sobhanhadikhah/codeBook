@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import App from './App'
 import './index.css'
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -11,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
       <Provider store={store} >
         <ScrollToTop />
+        <ToastContainer position='bottom-right' />
         <App />
       </Provider>
     </Router>

@@ -1,7 +1,8 @@
 import { ButttonGlowing } from "../../../components"
 import { Formik, Form, Field, useFormik } from "formik";
 import axios from "axios";
-export const FormSignIn = ({ formik }) => {
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
+export const FormSignIn = ({ formik, btnDisable }) => {
     const disableBtn = "cursor-not-allowed bg-opacity-50 ";
     const { handleSubmit, } = formik;
     return (
@@ -35,7 +36,14 @@ export const FormSignIn = ({ formik }) => {
                                         <div className="text-red-500 tracking-widest" >{formik.errors.password}</div>
                                         : null}
                                 </div>
-                                <button type="submit" className="bg-sky-600 text-white my-4 p-2 rounded-md " >Login</button>
+                                <button disabled={btnDisable} type="submit"
+                                    className={`bg-sky-600 text-white my-4 p-2 rounded-md  ${btnDisable === true ? "cursor-not-allowed flex items-center justify-center bg-blue-400 " : null} `} >
+                                    {btnDisable ?
+                                        <AiOutlineLoading3Quarters className="animate-spin" size={25} />
+                                        :
+                                        "Login"
+                                    }
+                                </button>
                             </div>
 
                         </form>

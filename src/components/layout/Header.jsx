@@ -4,20 +4,22 @@ import { Link } from "react-router-dom";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { TfiClose } from "react-icons/tfi"
 import { motion } from "framer-motion";
-import { IoMdClose } from "react-icons/io"
+import { useNavigate } from "react-router-dom";
 import { NavHumbergerVar, NavLargParentVar, listVaritions, seacrhBarParentVar } from "../../utils/motion";
 import { AiFillShopping } from "react-icons/ai";
 import { IoIosSearch } from "react-icons/io"
 import { SerchBar } from "../elemnts/SerchBar";
 import { ButttonGlowing } from "../elemnts/btnGlowing";
-
-
-
 export const Header = () => {
     const [NavToggle, setNavToggle] = useState(false);
     const [serchToggle, setSerchToggle] = useState(false);
-
-
+    const token = sessionStorage.getItem(`token`);
+    const navigate = useNavigate();
+    const handleOnLogout = () => {
+        sessionStorage.removeItem(`token`)
+        navigate(`/`)
+        setNavToggle(false)
+    }
     return (
         <motion.header variants={NavLargParentVar} initial="hidden" animate="visible" className="bg-black   top-0 sticky z-30 text-white  " >
             <nav className="max-w-[1240px]   mx-auto h-[98px] flex items-center  " >
@@ -40,12 +42,20 @@ export const Header = () => {
                             <AiFillShopping size={25} className="cursor-pointer   " />
                         </div>
                         |
-                        <Link to={``} className="bg-sky-500 px-3 flex justify-center items-center text-center font-SFPRODISPLAYMEDIUM py-1 transition duration-150 ease-in-out rounded-md  text-sm hover:bg-sky-600  " >
-                            SignIn
-                        </Link>
-                        <Link to={`/signup`} className=" px-3 flex tracking-widest justify-center items-center text-center py-1 rounded-md font-SFPRODISPLAYMEDIUM hover:bg-purple-600 text-sm transition duration-150 ease-in-out  " >
-                            signUp
-                        </Link>
+                        {
+                            token ? <h1 onClick={handleOnLogout} className="cursor-pointer" >Logout</h1> :
+                                (
+                                    <>
+                                        <Link to={`Login`} className="bg-sky-500 px-3 flex justify-center items-center text-center font-SFPRODISPLAYMEDIUM py-1 transition duration-150 ease-in-out rounded-md  text-sm hover:bg-sky-600  " >
+                                            Login
+                                        </Link>
+                                        <Link to={`Register`} className=" px-3 flex tracking-widest justify-center items-center text-center py-1 rounded-md font-SFPRODISPLAYMEDIUM hover:bg-purple-600 text-sm transition duration-150 ease-in-out  " >
+                                            Register
+                                        </Link>
+
+                                    </>
+                                )
+                        }
 
                     </ul>
 
@@ -73,14 +83,21 @@ export const Header = () => {
                         </motion.li>
                     )}
                     <div className="flex absolute bottom-7 flex-col gap-8 text-base justify-center items-center   " >
-                        <div className="flex items-center justify-center " >
-                            <ButttonGlowing to={`/signup`} onClick={() => setNavToggle(!NavToggle)} >
-                                Sign Up
-                            </ButttonGlowing>
+                        <div className="flex flex-col gap-8 items-center justify-center " >
+                            {
+                                token ? <ButttonGlowing onClick={handleOnLogout} >Logout</ButttonGlowing> :
+                                    (
+                                        <>
+                                            <ButttonGlowing to={`/register`} onClick={() => setNavToggle(!NavToggle)} >
+                                                Register
+                                            </ButttonGlowing>
+                                            <ButttonGlowing to={`login`} onClick={() => setNavToggle(!NavToggle)} >
+                                                login
+                                            </ButttonGlowing>
+                                        </>
+                                    )
+                            }
                         </div>
-                        <ButttonGlowing>
-                            Sign In
-                        </ButttonGlowing>
 
                     </div>
                 </ul>
