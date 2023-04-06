@@ -16,7 +16,7 @@ export const Products = () => {
     const handleOnFilterBar = () => {
         setFilterBarToggle(!FilterBarToggle)
     }
-    /* useTitle(`Products`) */
+    useTitle(`Products`)
     useEffect(() => {
         if (isSuccess) {
             dispatch(addToProducts(data))

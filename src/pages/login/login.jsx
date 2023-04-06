@@ -6,7 +6,9 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useTitle } from "../../hooks";
 export const Login = () => {
+useTitle(`Login`)
     const navigate = useNavigate()
     const [btnDisable, setBtnDisable] = useState(false)
     const handleOnSubmite = async (value) => {
