@@ -11,7 +11,7 @@ export const ProductsDetaile = () => {
         <div className="bg-black " >
             <div className='  max-w-[1240px] mx-auto ' >
                 {isLoading ? <Loading /> : data ?
-                
+
                     <div>
                         <ShopibgPage {...data} />
                     </div>

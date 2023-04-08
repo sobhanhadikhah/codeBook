@@ -2,7 +2,9 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     products:[],
     carts:[],
-    Favorites:[]
+    totalPrice:0,
+    Favorites:[],
+    totalQuintity:0
     
 }
 const cartsSlice = createSlice({
@@ -55,12 +57,46 @@ const cartsSlice = createSlice({
                 default:
                     break;
             }
+        },
+        addToCart: (state,action)=>{
+            const itemIndex = state.carts.findIndex((item)=>{
+                return item.id === action.payload.id
+            })
+            if (itemIndex >= 0 ) {
+                state.carts[itemIndex].cartQuentity +=1;
+                
+            }else{
+
+               const tempProduct =  {...action.payload,cartQuentity :1}
+               state.carts.push(tempProduct)
+            }
+
+          // localStorage.setItem(`carts`,JSON.stringify(state.carts));
+            
+        },
+        removeFromCart: (state,action)=>{
+            const {id, cartQuentity} = action.payload
+            const itemIndex = state.carts.findIndex((item)=>{
+                return item.id === id
+            })
+            
+            if (itemIndex >= 0 && cartQuentity >= 1  ) {
+                state.carts[itemIndex].cartQuentity -=1;
+                
+            }else if (cartQuentity === 0) {
+                state.carts =  state.carts.filter((item)=>{
+                    return item.id !== id
+                })    
+            }{
+
+            }
         }
+
         
         
     }
     
 
 })
-export const {addToProducts,addToFavorites,removeFromFavorite,handleFilter} = cartsSlice.actions
+export const {addToProducts,addToFavorites,removeFromFavorite,handleFilter,addToCart,removeFromCart} = cartsSlice.actions
 export default cartsSlice.reducer;

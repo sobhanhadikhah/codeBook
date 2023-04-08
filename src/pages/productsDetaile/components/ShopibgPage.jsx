@@ -5,27 +5,19 @@ import { useTitle } from '../../../hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdFavorite } from "react-icons/md"
 import { Link } from 'react-router-dom';
-import { addToFavorites, removeFromFavorite } from '../../../featcures/cartSlice';
+import { addToCart, addToFavorites, removeFromFavorite } from '../../../featcures/cartSlice';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { nanoid } from '@reduxjs/toolkit';
 export const ShopibgPage = (props) => {
     const { title, id, image, price, description, rating, category, } = props;
     const disPatch = useDispatch()
-    useTitle(title)
-    const [favoretStatus, setFavoretStatus] = useState(false)
-    const { Favorites } = useSelector(state => state.cartState)
-    const handleOnFavorite = () => {
-        const fav = Favorites.filter((items) => {
-            return items.id === id
-        })
-        console.log(fav);
-        if (fav) {
-            disPatch(addToFavorites({ data: props, fav: true }))
-        }
-        else {
-            disPatch(removeFromFavorite(id))
+    useTitle(title);
 
-        }
+    const handleOnAddToCart = () => {
+        disPatch(addToCart({ title: title, id: id, image: image, price: price, description: description, rating: rating, category: category, productIdCart: nanoid() }))
     }
+
     return (
         <div className='bg-black font-SFPRODISPLAYMEDIUM  ' >
             <Transition>
@@ -70,122 +62,19 @@ export const ShopibgPage = (props) => {
                                     </div>
                                 </div>
 
-                                {/* <ul class="mt-1 flex gap-1">
-                                <li>
-                                <img
-                                alt="Tee"
-                                        src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                        class="h-16 w-16 rounded-md object-cover"
-                                        />
-                                        </li>
-                                        
-                                        <li>
-                                        <img
-                                        alt="Tee"
-                                        src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                        class="h-16 w-16 rounded-md object-cover"
-                                        />
-                                        </li>
-                                        
-                                        <li>
-                                        <img
-                                        alt="Tee"
-                                        src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                        class="h-16 w-16 rounded-md object-cover"
-                                        />
-                                        </li>
-                                        
-                                        <li>
-                                        <img
-                                        alt="Tee"
-                                        src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                        class="h-16 w-16 rounded-md object-cover"
-                                        />
-                                        </li>
-                                    </ul> */}
+
                             </div>
 
                             <div className="lg:sticky lg:top-0">
-                                <form className="space-y-4 lg:pt-8">
-                                    {/* <fieldset>
-                                    <legend class="text-lg font-bold">Color</legend>
+                                <div className="space-y-4 lg:pt-8">
 
-                                    <div class="mt-2 flex flex-wrap gap-1">
-                                    <label for="color_green" class="cursor-pointer">
-                                    <input
-                                    type="radio"
-                                    id="color_green"
-                                    name="color"
-                                    class="peer sr-only"
-                                    checked
-                                    />
-                                    
-                                    <span
-                                    class="block h-6 w-6 rounded-full border border-gray-200 bg-green-700 ring-1 ring-transparent ring-offset-1 peer-checked:ring-gray-300"
-                                    ></span>
-                                    </label>
-                                    
-                                    <label for="color_blue" class="cursor-pointer">
-                                    <input
-                                    type="radio"
-                                    id="color_blue"
-                                    name="color"
-                                    class="peer sr-only"
-                                    />
-                                    
-                                    <span
-                                    class="block h-6 w-6 rounded-full border border-gray-200 bg-blue-700 ring-1 ring-transparent ring-offset-1 peer-checked:ring-gray-300"
-                                    ></span>
-                                    </label>
-                                    
-                                    <label for="color_pink" class="cursor-pointer">
-                                    <input
-                                    type="radio"
-                                    id="color_pink"
-                                    name="color"
-                                                class="peer sr-only"
-                                                />
-                                                
-                                                <span
-                                                class="block h-6 w-6 rounded-full border border-gray-200 bg-pink-700 ring-1 ring-transparent ring-offset-1 peer-checked:ring-gray-300"
-                                                ></span>
-                                                </label>
-                                                
-                                                <label for="color_red" class="cursor-pointer">
-                                                <input
-                                                type="radio"
-                                                id="color_red"
-                                                name="color"
-                                                class="peer sr-only"
-                                                />
-                                                
-                                                <span
-                                                class="block h-6 w-6 rounded-full border border-gray-200 bg-red-700 ring-1 ring-transparent ring-offset-1 peer-checked:ring-gray-300"
-                                                ></span>
-                                                </label>
-                                                
-                                                <label for="color_indigo" class="cursor-pointer">
-                                                <input
-                                                type="radio"
-                                                id="color_indigo"
-                                                name="color"
-                                                class="peer sr-only"
-                                                />
-                                                
-                                                <span
-                                                class="block h-6 w-6 rounded-full border border-gray-200 bg-indigo-700 ring-1 ring-transparent ring-offset-1 peer-checked:ring-gray-300"
-                                                ></span>
-                                                </label>
-                                                </div>
-                                                </fieldset>
-                                            */}
                                     <fieldset>
                                         {/* <legend className="text-lg font-bold">Material</legend> */}
                                         <div className='flex flex-col justify-start' >
                                             <Rating rating={rating.rate} />
                                             {/* adding to favoirte page */}
 
-                                            <MdFavorite className={`hover:text-red-700 ${favoretStatus ? "text-red-500" : "text-white"} cursor-pointer `} size={30} onClick={handleOnFavorite} />
+                                            <MdFavorite className={`hover:text-red-700 cursor-pointer `} size={30} />
 
 
                                         </div>
@@ -222,12 +111,15 @@ export const ShopibgPage = (props) => {
                                         <p className="text-xl font-bold">${price}</p>
                                     </div>
 
-                                    <button
+                                    <motion.button
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 1 }}
+                                        onClick={handleOnAddToCart}
                                         type="submit"
                                         className="w-full rounded bg-orange-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white"
                                     >
                                         Add to cart
-                                    </button>
+                                    </motion.button>
 
                                     <button
                                         type="button"
@@ -235,7 +127,7 @@ export const ShopibgPage = (props) => {
                                     >
                                         Notify when on sale
                                     </button>
-                                </form>
+                                </div>
                             </div>
 
                             <div className="lg:col-span-3">

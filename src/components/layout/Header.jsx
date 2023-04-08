@@ -10,16 +10,22 @@ import { AiFillShopping } from "react-icons/ai";
 import { IoIosSearch } from "react-icons/io"
 import { SerchBar } from "../elemnts/SerchBar";
 import { ButttonGlowing } from "../elemnts/btnGlowing";
+import { token } from "../../schema/validition";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 export const Header = () => {
     const [NavToggle, setNavToggle] = useState(false);
     const [serchToggle, setSerchToggle] = useState(false);
-    const token = sessionStorage.getItem(`token`);
     const navigate = useNavigate();
     const handleOnLogout = () => {
         sessionStorage.removeItem(`token`)
-        navigate(`/`)
+        toast.error(`loged out !`)
+        //navigate(`login`)
         setNavToggle(false)
+        window.location = "login";
     }
+    const { carts } = useSelector(state => state.cartState);
+    console.log(carts);
     return (
         <motion.header variants={NavLargParentVar} initial="hidden" animate="visible" className="bg-black   top-0 sticky z-30 text-white  " >
             <nav className="max-w-[1240px]   mx-auto h-[98px] flex items-center  " >
@@ -29,7 +35,7 @@ export const Header = () => {
                 </h3>
                 <div className="mx-3" >
                     {/* larg display navbar contents */}
-                    <ul className="lg:flex flex-row  gap-x-6 hidden font-Shadows-Into-Light text-xl tracking-widest font-semibold " >
+                    <ul className="lg:flex flex-row  gap-x-6 hidden font-Shadows-Into-Light text-xl items-center text-center justify-center tracking-widest font-semibold " >
                         {NavbarContent.map(({ id, title, path }) =>
                             <motion.li variants={listVaritions} key={id} >
 
@@ -38,9 +44,12 @@ export const Header = () => {
                         )}
                         <IoIosSearch size={30} className="cursor-pointer" onClick={() => setSerchToggle(!serchToggle)} />
 
-                        <div className="hover:scale-150 tra " >
-                            <AiFillShopping size={25} className="cursor-pointer   " />
-                        </div>
+                        <Link to={`carts`} className="hover:scale-150  flex  font-SFPRODISPLAYMEDIUM  " >
+                            <AiFillShopping size={30} className="cursor-pointer" />
+                            <span className="absolute z-50 bottom-7 m-6 p-1 text-purple-500  rounded-full  text-sm items-center justify-center text-center " >
+                                {carts.length}
+                            </span>
+                        </Link>
                         |
                         {
                             token ? <h1 onClick={handleOnLogout} className="cursor-pointer" >Logout</h1> :
@@ -62,7 +71,12 @@ export const Header = () => {
                     {/* phone and tablet navbar contents */}
                     <div className="lg:hidden flex" >
                         <IoIosSearch size={30} className="cursor-pointer mr-3 " onClick={() => setSerchToggle(!serchToggle)} />
-                        <AiFillShopping size={25} className="mx-3" />
+                        <Link to={`carts`} className="flex items-center justify-center text-center " >
+                            <span className="absolute  z-50  bottom-1 m-6 p-1 text-black font-semibold rounded-full text-lg   items-center justify-center text-center " >
+                                {carts.length}
+                            </span>
+                            <AiFillShopping size={30} className="mx-3" />
+                        </Link>
 
 
                         <HiMenuAlt4 size={30} onClick={() => setNavToggle(!NavToggle)} />
