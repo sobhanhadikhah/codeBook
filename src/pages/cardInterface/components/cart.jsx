@@ -5,7 +5,7 @@ export const Cart = (props) => {
     const { image, title, id, price, cartQuentity, description, category, rating } = props;
     const disPatch = useDispatch()
     const handleOnRemove = () => {
-        disPatch(removeFromCart({ id: id, cartQuentity: cartQuentity }))
+        disPatch(removeFromCart({ id: id }))
     }
     const handleOnAdd = () => {
         disPatch(addToCart({ title: title, id: id, image: image, price: price, description: description, rating: rating, category: category, }))

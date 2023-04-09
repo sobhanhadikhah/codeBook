@@ -75,21 +75,17 @@ const cartsSlice = createSlice({
             
         },
         removeFromCart: (state,action)=>{
-            const {id, cartQuentity} = action.payload
+            const {id} = action.payload
             const itemIndex = state.carts.findIndex((item)=>{
                 return item.id === id
             })
-            
-            if (itemIndex >= 0 && cartQuentity >= 1  ) {
-                state.carts[itemIndex].cartQuentity -=1;
-                
-            }else if (cartQuentity === 0) {
-                state.carts =  state.carts.filter((item)=>{
-                    return item.id !== id
-                })    
-            }{
-
+            if (itemIndex !== -1) {
+                state.carts[itemIndex].cartQuentity--;
+                if (state.carts[itemIndex].cartQuentity === 0) {
+                    state.carts.splice(itemIndex,1)
+                }
             }
+            
         }
 
         

@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import { Transition } from "../../components";
 import { CartEmpty, CartList } from "./components"
+import { useTitle } from "../../hooks";
 export const CartPage = () => {
-
+    useTitle(`Carts`)
     const { carts } = useSelector(state => state.cartState);
     return (
         <main className="bg-black h-screen" >
