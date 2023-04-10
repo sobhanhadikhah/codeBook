@@ -19,22 +19,22 @@ export const questionContent = [
     {
         id:"qu1",
         question:"How much is this plane ?",
-        ansawre:"for you expensive."
+        ansawre:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente harum voluptatibus tenetur inventore ut eum possimus eligendi dicta? Fugit ab obcaecati nesciunt soluta minima quia quibusdam quos modi recusandae dolor."
     },
     {
         id:"qu2",
         question:"How much is this plane ?",
-        ansawre:"for you expensive."
+        ansawre:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente harum voluptatibus tenetur inventore ut eum possimus eligendi dicta? Fugit ab obcaecati nesciunt soluta minima quia quibusdam quos modi recusandae dolor."
     },
     {
         id:"qu3",
         question:"How much is this plane ?",
-        ansawre:"for you expensive."
+        ansawre:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente harum voluptatibus tenetur inventore ut eum possimus eligendi dicta? Fugit ab obcaecati nesciunt soluta minima quia quibusdam quos modi recusandae dolor."
     },
     {
         id:"qu4",
         question:"How much is this plane ?",
-        ansawre:"for you expensive."
+        ansawre:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente harum voluptatibus tenetur inventore ut eum possimus eligendi dicta? Fugit ab obcaecati nesciunt soluta minima quia quibusdam quos modi recusandae dolor."
     },
 ] 
 export const filterBarPrice =[

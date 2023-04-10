@@ -44,9 +44,9 @@ export const Header = () => {
                         )}
                         <IoIosSearch size={30} className="cursor-pointer" onClick={() => setSerchToggle(!serchToggle)} />
 
-                        <Link to={`carts`} className="hover:scale-150  flex  font-SFPRODISPLAYMEDIUM  " >
+                        <Link to={`carts`} className="flex  font-SFPRODISPLAYMEDIUM  " >
                             <AiFillShopping size={30} className="cursor-pointer" />
-                            <span className="absolute z-50 bottom-7 m-6 p-1 text-purple-500  rounded-full  text-sm items-center justify-center text-center " >
+                            <span className="absolute z-50 bottom-7 m-6 p-1 text-white  rounded-full  text-sm items-center justify-center text-center " >
                                 {carts.length}
                             </span>
                         </Link>

@@ -5,18 +5,35 @@ import { useTitle } from '../../../hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdFavorite } from "react-icons/md"
 import { Link } from 'react-router-dom';
-import { addToCart, addToFavorites, removeFromFavorite } from '../../../featcures/cartSlice';
+import { addToCart, addToFavorites, hardRemove, removeFromCart, removeFromFavorite } from '../../../featcures/cartSlice';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
+import { RiDeleteBin6Line } from "react-icons/ri";
 export const ShopibgPage = (props) => {
     const { title, id, image, price, description, rating, category, } = props;
     const disPatch = useDispatch()
     useTitle(title);
-
+    const [cartQuentityState, setCartQuentityState] = useState(0)
     const handleOnAddToCart = () => {
         disPatch(addToCart({ title: title, id: id, image: image, price: price, description: description, rating: rating, category: category, productIdCart: nanoid() }))
     }
+
+    const [isInCard, setIsInCard] = useState(false);
+    const { carts } = useSelector(state => state.cartState)
+    useEffect(() => {
+        const index = carts.find(item => {
+            return item.id === id
+        })
+        if (index) {
+            setIsInCard(true)
+            const indexcart = carts.findIndex(item => item.id === id)
+            setCartQuentityState(carts[indexcart].cartQuentity)
+        } else {
+            setIsInCard(false)
+        }
+    }, [carts, id])
+
 
     return (
         <div className='bg-black font-SFPRODISPLAYMEDIUM  ' >
@@ -110,16 +127,44 @@ export const ShopibgPage = (props) => {
                                     <div>
                                         <p className="text-xl font-bold">${price}</p>
                                     </div>
+                                    {
+                                        isInCard ?
+                                            (
+                                                <>
+                                                    <div
 
-                                    <motion.button
-                                        whileHover={{ scale: 1.1 }}
-                                        whileTap={{ scale: 1 }}
-                                        onClick={handleOnAddToCart}
-                                        type="submit"
-                                        className="w-full rounded bg-orange-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white"
-                                    >
-                                        Add to cart
-                                    </motion.button>
+
+
+                                                        className="w-full flex justify-between items-center text-xl py-3 rounded bg-white px-6  font-SFPRODISPLAYMEDIUM  font-bold uppercase tracking-wide text-black"
+                                                    >
+                                                        <button className='text-red-500 font-bold  ' onClick={() => disPatch(removeFromCart({ id: id }))} >
+                                                            {
+                                                                cartQuentityState === 1 ? <RiDeleteBin6Line size={25} /> : "-"
+                                                            }
+                                                        </button>
+                                                        <h1>
+                                                            {cartQuentityState}
+                                                        </h1>
+                                                        <button onClick={() => disPatch(addToCart({ id: id }))} >
+                                                            +
+                                                        </button>
+                                                    </div>
+
+                                                </>
+                                            )
+                                            :
+                                            <motion.button
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: 1 }}
+                                                onClick={handleOnAddToCart}
+                                                type="submit"
+                                                className="w-full rounded bg-orange-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white"
+                                            >
+                                                Add to cart
+                                            </motion.button>
+
+                                    }
+
 
                                     <button
                                         type="button"

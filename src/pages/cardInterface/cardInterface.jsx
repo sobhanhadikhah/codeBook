@@ -6,7 +6,7 @@ export const CartPage = () => {
     useTitle(`Carts`)
     const { carts } = useSelector(state => state.cartState);
     return (
-        <main className="bg-black h-screen" >
+        <main className="bg-black " >
             <Transition>
 
                 <div className=" max-w-[1240px] mx-auto  " >

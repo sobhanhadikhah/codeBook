@@ -1,10 +1,7 @@
 import { useState } from 'react'
-import { Cart } from './cart'
-import { CheckOut } from './checkOut'
-import { GrFormNextLink } from "react-icons/gr";
-import { motion } from 'framer-motion'
-import { listVaritions } from '../../../utils/motion'
-export const CartList = ({ carts, localCarts }) => {
+import { PaymentMethode } from './paymentMethode';
+import { CardSummery } from './cardSummery';
+export const CartList = ({ carts }) => {
     const [activeDialog, setActiveDialog] = useState(false);
     const dialog = () => {
         setActiveDialog(true);
@@ -15,42 +12,21 @@ export const CartList = ({ carts, localCarts }) => {
     };
 
     return (
-        <div className='mt-8 mx-2 ' >
-
-            <div>
-                <div className='text-center ' >
-                    <h1>
-                        All Carts ({carts.length})
-                    </h1>
-                </div>
-                <ul className='flex flex-col gap-4'  >
-                    {
-                        carts.map((item) => {
-                            return <Cart key={item.productIdCart} {...item} />
-                        })
-                    }
-
-                </ul>
+        <div className=' text-black ' >
+            <div className="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
+                {/* card summry */}
+                <CardSummery
+                    carts={carts}
+                />
+                {/* payment method */}
+                <PaymentMethode
+                    CloseDialog={CloseDialog}
+                    activeDialog={activeDialog}
+                    setActiveDialog={setActiveDialog}
+                    dialog={dialog}
+                />
             </div>
-            <div className='flex justify-between' >
-                <div>
-                    total count:
-                </div>
-                <div>
-                    $
-                </div>
-            </div>
-            <div className='border-gray-500 border' />
-            <div className='flex justify-end' >
-                <button onClick={() => setActiveDialog(true)} className='bg-sky-600  text-white  font-semibold flex justify-center items-center  p-3 rounded-lg m-3' >
-                    Place Order <GrFormNextLink size={30} />
-
-                </button>
-
-                <CheckOut CloseDialog={CloseDialog} activeDialog={activeDialog} setActiveDialog={setActiveDialog} />
-
-            </div>
-
         </div>
+
     )
 }

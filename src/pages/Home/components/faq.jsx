@@ -1,7 +1,7 @@
 import { FaqSideBar } from "../../../components"
 import { questionContent } from "../../../utils/content"
 
-export const Faq = (props) => {
+export const Faq = () => {
     return (
         <div className="max-w-[1240px] mx-auto  py-5  " >
             <div>

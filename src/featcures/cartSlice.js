@@ -1,7 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 const initialState = {
     products:[],
-    carts:[],
+    carts: localStorage.getItem(`carts`) ? JSON.parse(localStorage.getItem(`carts`)) : [] ,
     totalPrice:0,
     Favorites:[],
     totalQuintity:0
@@ -66,12 +67,13 @@ const cartsSlice = createSlice({
                 state.carts[itemIndex].cartQuentity +=1;
                 
             }else{
-
-               const tempProduct =  {...action.payload,cartQuentity :1}
-               state.carts.push(tempProduct)
+                
+                const tempProduct =  {...action.payload,cartQuentity :1}
+                state.carts.push(tempProduct)
+                toast.success(`${action.payload.title} Added To cart.`)
             }
 
-          // localStorage.setItem(`carts`,JSON.stringify(state.carts));
+           localStorage.setItem(`carts`,JSON.stringify(state.carts));
             
         },
         removeFromCart: (state,action)=>{
@@ -83,9 +85,23 @@ const cartsSlice = createSlice({
                 state.carts[itemIndex].cartQuentity--;
                 if (state.carts[itemIndex].cartQuentity === 0) {
                     state.carts.splice(itemIndex,1)
+                    
                 }
             }
+           localStorage.setItem(`carts`,JSON.stringify(state.carts));
+           toast.error(`item Removed`)
+
             
+        },
+        hardRemove: (state,action) =>{
+                const {id} = action.payload;
+                const index = state.carts.findIndex((item)=>{
+                    return item.productIdCart === id
+                })
+                state.carts.splice(index,1)
+                toast.error(`item Deleted`)
+           localStorage.setItem(`carts`,JSON.stringify(state.carts));
+
         }
 
         
@@ -94,5 +110,5 @@ const cartsSlice = createSlice({
     
 
 })
-export const {addToProducts,addToFavorites,removeFromFavorite,handleFilter,addToCart,removeFromCart} = cartsSlice.actions
+export const {addToProducts,addToFavorites,removeFromFavorite,handleFilter,addToCart,removeFromCart,hardRemove} = cartsSlice.actions
 export default cartsSlice.reducer;

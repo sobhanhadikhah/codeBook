@@ -34,7 +34,7 @@ export const handleOnSubmite = async (value,btnDisable, setBtnDisable) => {
         
     } catch (error) {
         setBtnDisable(false);
-        console.log(`wrong`);
+        console.log(`wrong `);
         console.log(error);
         toast.error(`somthing wrong please try agine`);
     }

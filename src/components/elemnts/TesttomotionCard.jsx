@@ -1,7 +1,7 @@
 
 export const TesttomotionCard = () => {
     return (
-        <div className=" lg:bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 border-2 border-black " >
+        <div className=" md:bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 border-2 border-black " >
             <section className="text-white    rounded-3xl body-font   ">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
