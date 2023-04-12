@@ -2,7 +2,7 @@
 export const ShippingMethods = () => {
     return (
         <>
-            <p className="mt-8 text-lg font-medium">Shipping Methods</p>
+            <p className="mt-8 text-lg font-medium text-white ">Shipping Methods</p>
             <form className="mt-5 grid gap-6">
                 <div className="relative">
                     <input
@@ -23,7 +23,7 @@ export const ShippingMethods = () => {
                             alt=""
                         />
                         <div className="ml-5">
-                            <span className="mt-2 font-semibold">Fedex Delivery</span>
+                            <span className="mt-2 font-semibold text-sky-600 ">Fedex Delivery</span>
                             <p className="text-slate-500 text-sm leading-6">
                                 Delivery: 2-4 Days
                             </p>
@@ -45,11 +45,11 @@ export const ShippingMethods = () => {
                     >
                         <img
                             className="w-14 object-contain"
-                            src="/images/oG8xsl3xsOkwkMsrLGKM4.png"
+                            src=""
                             alt=""
                         />
                         <div className="ml-5">
-                            <span className="mt-2 font-semibold">Fedex Delivery</span>
+                            <span className="mt-2 font-semibold text-sky-600 ">Fedex Delivery</span>
                             <p className="text-slate-500 text-sm leading-6">
                                 Delivery: 2-4 Days
                             </p>

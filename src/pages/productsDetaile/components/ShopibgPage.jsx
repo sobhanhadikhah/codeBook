@@ -5,7 +5,7 @@ import { useTitle } from '../../../hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdFavorite } from "react-icons/md"
 import { Link } from 'react-router-dom';
-import { addToCart, addToFavorites, hardRemove, removeFromCart, removeFromFavorite } from '../../../featcures/cartSlice';
+import { addToCart, removeFromCart, } from '../../../featcures/cartSlice';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
@@ -16,7 +16,10 @@ export const ShopibgPage = (props) => {
     useTitle(title);
     const [cartQuentityState, setCartQuentityState] = useState(0)
     const handleOnAddToCart = () => {
-        disPatch(addToCart({ title: title, id: id, image: image, price: price, description: description, rating: rating, category: category, productIdCart: nanoid() }))
+        disPatch(addToCart({ title: title, id: id, image: image, price: price, description: description, rating: rating, category: category, productIdCart: nanoid(), total: 0 }))
+    }
+    const handleOnRemove = () => {
+        disPatch(removeFromCart({ id: id, price: price, }))
     }
 
     const [isInCard, setIsInCard] = useState(false);
@@ -137,7 +140,7 @@ export const ShopibgPage = (props) => {
 
                                                         className="w-full flex justify-between items-center text-xl py-3 rounded bg-white px-6  font-SFPRODISPLAYMEDIUM  font-bold uppercase tracking-wide text-black"
                                                     >
-                                                        <button className='text-red-500 font-bold  ' onClick={() => disPatch(removeFromCart({ id: id }))} >
+                                                        <button className='text-red-500 font-bold  ' onClick={handleOnRemove} >
                                                             {
                                                                 cartQuentityState === 1 ? <RiDeleteBin6Line size={25} /> : "-"
                                                             }
@@ -145,7 +148,7 @@ export const ShopibgPage = (props) => {
                                                         <h1>
                                                             {cartQuentityState}
                                                         </h1>
-                                                        <button onClick={() => disPatch(addToCart({ id: id }))} >
+                                                        <button onClick={handleOnAddToCart} >
                                                             +
                                                         </button>
                                                     </div>

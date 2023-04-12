@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 const initialState = {
     products:[],
     carts: localStorage.getItem(`carts`) ? JSON.parse(localStorage.getItem(`carts`)) : [] ,
-    totalPrice:0,
+    totalPrice: localStorage.getItem(`totalPrice`) ? JSON.parse(localStorage.getItem(`totalPrice`)) : 0 ,
     Favorites:[],
     totalQuintity:0
     
@@ -60,31 +60,33 @@ const cartsSlice = createSlice({
             }
         },
         addToCart: (state,action)=>{
+            const {id,price,} = action.payload
             const itemIndex = state.carts.findIndex((item)=>{
-                return item.id === action.payload.id
+                return item.id === id
             })
             if (itemIndex >= 0 ) {
                 state.carts[itemIndex].cartQuentity +=1;
-                
             }else{
-                
                 const tempProduct =  {...action.payload,cartQuentity :1}
-                state.carts.push(tempProduct)
+                state.carts.push(tempProduct) 
                 toast.success(`${action.payload.title} Added To cart.`)
-            }
 
+            }
            localStorage.setItem(`carts`,JSON.stringify(state.carts));
             
         },
         removeFromCart: (state,action)=>{
-            const {id} = action.payload
+            const {id,price} = action.payload
             const itemIndex = state.carts.findIndex((item)=>{
                 return item.id === id
             })
             if (itemIndex !== -1) {
                 state.carts[itemIndex].cartQuentity--;
+                
                 if (state.carts[itemIndex].cartQuentity === 0) {
                     state.carts.splice(itemIndex,1)
+
+
                     
                 }
             }
@@ -94,15 +96,36 @@ const cartsSlice = createSlice({
             
         },
         hardRemove: (state,action) =>{
-                const {id} = action.payload;
+                const {id,price,cartQuentity} = action.payload;
                 const index = state.carts.findIndex((item)=>{
                     return item.productIdCart === id
                 })
                 state.carts.splice(index,1)
                 toast.error(`item Deleted`)
-           localStorage.setItem(`carts`,JSON.stringify(state.carts));
 
+
+           localStorage.setItem(`carts`,JSON.stringify(state.carts));
+        },
+        subtotalPrice: (state,action)=>{
+            let {cartQuentity,total} = state.carts.reduce(
+                (cartTotal,cartItem)=>{
+                    const {price,cartQuentity} = cartItem;
+                    const itemTotal = price *cartQuentity;
+                    cartTotal.total +=  itemTotal;
+                    cartTotal.cartQuentity += cartQuentity
+                    return cartTotal
+
+                },
+                {
+                    total:0,
+                    cartQuentity:0
+                }
+                
+                )                    
+                state.totalPrice = total
+                state.totalQuintity = cartQuentity
         }
+        
 
         
         
@@ -110,5 +133,5 @@ const cartsSlice = createSlice({
     
 
 })
-export const {addToProducts,addToFavorites,removeFromFavorite,handleFilter,addToCart,removeFromCart,hardRemove} = cartsSlice.actions
+export const {addToProducts,subtotalPrice,addToFavorites,removeFromFavorite,handleFilter,addToCart,removeFromCart,hardRemove} = cartsSlice.actions
 export default cartsSlice.reducer;

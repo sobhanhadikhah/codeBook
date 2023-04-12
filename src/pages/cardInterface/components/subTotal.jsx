@@ -1,21 +1,22 @@
 import React from 'react'
 
-export const SubTotal = () => {
+export const SubTotal = ({ totalPrice }) => {
+
     return (
         <>
             <div className="mt-6 border-t border-b py-2">
                 <div className="flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-900">Subtotal</p>
-                    <p className="font-semibold text-gray-900">$399.00</p>
+                    <p className="text-sm font-medium text-white">Subtotal</p>
+                    <p className="font-semibold text-white">${totalPrice}</p>
                 </div>
                 <div className="flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-900">Shipping</p>
-                    <p className="font-semibold text-gray-900">$8.00</p>
+                    <p className="text-sm font-medium text-white">Shipping</p>
+                    <p className="font-semibold text-white">Free</p>
                 </div>
             </div>
             <div className="mt-6 flex items-center justify-between">
-                <p className="text-sm font-medium text-gray-900">Total</p>
-                <p className="text-2xl font-semibold text-gray-900">$408.00</p>
+                <p className="text-sm font-medium text-white">Total</p>
+                <p className="text-2xl font-semibold text-white">${totalPrice} </p>
             </div>
         </>
     )

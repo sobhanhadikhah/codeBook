@@ -1,6 +1,6 @@
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { token } from "../../../schema/validition";
+import { token } from "../../../schema/validitionLogin";
 export const CartEmpty = () => {
 
     return (

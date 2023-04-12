@@ -1,6 +1,6 @@
 import { Transition } from "../../components"
 import { FormSignIn } from "./components/form";
-import { handleOnSubmite, intialVaues, validitionSchema } from "../../schema/validition";
+import { handleOnSubmite, intialVaues, validitionSchema } from "../../schema/validitionLogin";
 import { toast } from 'react-toastify';
 import { useFormik } from "formik";
 import axios from "axios";

@@ -10,7 +10,7 @@ import { AiFillShopping } from "react-icons/ai";
 import { IoIosSearch } from "react-icons/io"
 import { SerchBar } from "../elemnts/SerchBar";
 import { ButttonGlowing } from "../elemnts/btnGlowing";
-import { token } from "../../schema/validition";
+import { token } from "../../schema/validitionLogin";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 export const Header = () => {
