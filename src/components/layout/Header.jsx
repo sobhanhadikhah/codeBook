@@ -31,7 +31,7 @@ export const Header = () => {
             <nav className="max-w-[1240px]   mx-auto h-[98px] flex items-center  " >
 
                 <h3 to={`/`} className=" font w-full ml-3 tracking-widest   font-Caveat text-3xl   " >
-                    <Link to={`/`} >CodeBook</Link>
+                    <Link to={`/`} >Mongi<span className="text-orange-400" >Shop</span></Link>
                 </h3>
                 <div className="mx-3" >
                     {/* larg display navbar contents */}
