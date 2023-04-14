@@ -1,6 +1,7 @@
 import { MdOutlineDone } from "react-icons/md"
 import { useTitle } from "../../../hooks";
 import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 export const SucssesOrder = (props) => {
     const { state, orderId } = props;
     const { email, cardHolder } = state.data
@@ -18,7 +19,10 @@ export const SucssesOrder = (props) => {
                         <p>Order Id: <span className="font-bold" >{orderId} </span></p>
                         <p>We Send You Detaile To <a className="text-sky-500 hover:underline" href={`mailto:${email}?subject = Feedback&body = Message`} >{email}</a></p>
                     </div>
-                    <Link to={`/`} className="block bg-sky-600 p-3 rounded-lg font-semibold " >Back To Home</Link>
+                    <div className="p-3" >
+                        <Link to={`/products`} className="flex items-center gap-3 bg-sky-600 p-3 rounded-lg font-semibold  " >Continue To Shoping <FaShoppingCart /> </Link>
+
+                    </div>
                 </div>
             </div>
         </div>

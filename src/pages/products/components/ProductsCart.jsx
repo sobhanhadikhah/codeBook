@@ -1,46 +1,36 @@
 import { Link } from "react-router-dom"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { motion } from "framer-motion"
-import { MdFavorite } from "react-icons/md"
 import { Rating } from "../../../components";
-import { useDispatch } from "react-redux";
-import { addToFavorites } from "../../../featcures/cartSlice";
 export const ProductsCart = (props) => {
-    const disPatch = useDispatch()
+
     const { title, price, image, id, rating } = props
 
     return (
         <>
-            <Link to={`/products/${id}`} className="flex   flex-col  justify-end bg-white  font-SFPRODISPLAYMEDIUM text-black p-2  " id="product__card">
+            <Link to={`/products/${id}`} className="flex shadow-md shadow-gray-700 border-orange-500 rounded-lg  lg:flex-col   bg-black lg:bg-white lg:justify-end justify-start font-SFPRODISPLAYMEDIUM text-white lg:text-black  p-2 lg:w-auto  w-full " id="product__card">
                 <div className="hover:underline" >
-                    <div className="bg-lightGrey1 rounded-2xl  p-1 relative hover:underline flex items-center justify-center w-[250px] cursor-pointer">
-                        <LazyLoadImage
-                            src={image}
-                            alt={title}
-                            effect="blur"
-                            className="h-[220px] bg-transparent w-[220px] object-contain"
-                        />
-                        <div
-                            className={`cart-btn absolute top-3 right-3 p-1 text-[28px] bg-white rounded-[0.3rem] hover:bg-primaryColor hover:text-purple-400 `}>
-                            <div className="text-black hover:text-red-500" >
-                                {/* <MdFavorite onClick={() => disPatch(addToFavorites({ title: title }))} /> */}
-                            </div>
+                    <div className="bg-lightGrey1 rounded-2xl  p-1 relative hover:underline flex lg:flex-col items-center justify-center lg:w-[250px]  cursor-pointer">
+                        <div className=" flex items-center " >
+                            <LazyLoadImage
+                                src={image}
+                                alt={title}
+                                effect="blur"
+                                className="lg:h-[220px] lg:w-[220px] h-[65px] rounded-md w-[65px]  bg-transparent  object-contain"
+                            />
                         </div>
 
+                        <div className="pt-2  flex w-full max-w-[240px] ml-6 lg:ml-0 text-sm   hover:text-blue-400   justify-start">
+                            <p>{title.length >= 30 ? title.slice(0, 30) + "..." : title}</p>
+                        </div>
                     </div>
-
-                    <div className="pt-2 flex w-full max-w-[240px]   hover:text-blue-400   justify-start">
-                        <p>{title.length >= 30 ? title.slice(0, 30) + "..." : title}</p>
+                    <div>
+                        <Rating rating={rating.rate} />
                     </div>
-                </div>
-                <div>
-                    <Rating rating={rating.rate} />
-                </div>
-                <div className="  " >
+                    <div className="  " >
 
-                    <p className="font-[600] text-lg  ">${price}</p>
+                        <p className="font-[600] text-lg  ">${price}</p>
+                    </div>
                 </div>
 
             </Link>

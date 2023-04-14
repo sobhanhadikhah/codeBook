@@ -19,7 +19,7 @@ export const FaileOrder = (props) => {
                         <p>We Send You Detaile To <a className="text-sky-500 hover:underline" href={`mailto:${email}?subject = Feedback&body = Message`} >{email}</a></p>
                     </div>
 
-                    <div className="flex flex-col gap-6" >
+                    <div className="flex flex-col gap-6 p-3" >
                         <Link to={`/`} className="block bg-red-500 p-3 rounded-lg font-semibold " >Back To Home</Link>
                         <Link to={`/carts`} className="block bg-sky-700 p-3 rounded-lg font-semibold " >Check Again</Link>
                     </div>

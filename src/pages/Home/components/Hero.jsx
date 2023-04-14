@@ -6,7 +6,7 @@ export const Hero = () => {
             <section className="text-gray-600 body-font">
                 <div className="container mx-auto flex px-5 min-h-screen items-center justify-center flex-col">
                     {/* terminal */}
-                    <Terminal p1="Making a word wide web better..." />
+                    <Terminal p1="Making a wolrd wide web better..." />
                     <div className="text-center lg:w-2/3 w-full">
                         <h1 className="title-font sm:text-4xl text-3xl pt-4 font-medium text-white  ">
                             You Are <span className="bg-gradient-to-r from-cyan-500 to-violet-400 bg-clip-text text-transparent " >Amazing Like Us</span>

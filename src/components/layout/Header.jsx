@@ -13,14 +13,14 @@ import { ButttonGlowing } from "../elemnts/btnGlowing";
 import { token } from "../../schema/validitionLogin";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import { logOut } from "../../services";
 export const Header = () => {
     const [NavToggle, setNavToggle] = useState(false);
     const [serchToggle, setSerchToggle] = useState(false);
     const navigate = useNavigate();
     const handleOnLogout = () => {
-        localStorage.removeItem(`token`)
+        logOut();
         toast.error(`loged out !`)
-        //navigate(`login`)
         setNavToggle(false)
         window.location = "login";
     }

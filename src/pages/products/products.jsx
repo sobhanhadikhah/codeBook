@@ -42,7 +42,7 @@ export const Products = () => {
                             </button>
                         </span>
                     </div>
-                    <div className=' flex flex-wrap mx-3  gap-2 justify-center  ' >
+                    <div className=' flex flex-wrap mx-3  lg:gap-2 gap-6 justify-center  ' >
                         {data ?
                             products.map(items => {
                                 return <ProductsCart key={items.id} {...items} />

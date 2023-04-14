@@ -13,16 +13,17 @@ import { useDispatch } from 'react-redux';
 import { cardClear } from '../../../featcures/cartSlice';
 import { nanoid } from '@reduxjs/toolkit';
 export const CheckOut = ({ activeDialog, setActiveDialog, totalPrice }) => {
+
     const disPatch = useDispatch()
     const navigate = useNavigate();
-    const handleOnSubmite = (value) => {
+    const handleOnSubmiteCheckout = (value) => {
         try {
             console.log(`its ok`);
             console.log(value);
-            throw new Error("somthing Wrong")
-            disPatch(cardClear());
 
+            // throw new Error("somthing Wrong")
             navigate(`/order/${nanoid()}`, { state: { status: true, data: value } })
+            disPatch(cardClear());
             toast.success(`ALL DONE`)
 
         } catch (error) {
@@ -34,7 +35,7 @@ export const CheckOut = ({ activeDialog, setActiveDialog, totalPrice }) => {
     const defaultButton =
         'w-full rounded-md flex item-center justify-center  text-center py-2 px-4 shadow-md text-sm duration-300 active:bg-opacity-80 ease-in-out bg-[#1a5cff] md:text-sm text-white hover:shadow-md hover:shadow-blue-500/50 ';
     return (
-        <Formik initialValues={intialValueCheckout} validationSchema={validitionCheckout} onSubmit={data => handleOnSubmite(data)} >
+        <Formik initialValues={intialValueCheckout} validationSchema={validitionCheckout} onSubmit={data => handleOnSubmiteCheckout(data)} >
             {(formik) => {
                 return (
                     <form

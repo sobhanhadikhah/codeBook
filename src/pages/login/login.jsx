@@ -1,12 +1,13 @@
 import { Transition } from "../../components"
 import { FormSignIn } from "./components/form";
-import { handleOnSubmite, intialValues, validitionSchema } from "../../schema/validitionLogin";
+import { intialValues, validitionSchema } from "../../schema/validitionLogin";
 import { toast } from 'react-toastify';
 import { useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useTitle } from "../../hooks";
+import { logIn } from "../../services/login";
 export const Login = () => {
     useTitle(`Login`)
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ export const Login = () => {
         initialValues: intialValues,
         validationSchema: validitionSchema,
         onSubmit: (value) => {
-            handleOnSubmite(value, btnDisable, setBtnDisable)
+            logIn(value, btnDisable, setBtnDisable)
         }
     })
     return (

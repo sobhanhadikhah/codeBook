@@ -6,7 +6,7 @@ export const OrderPage = () => {
     const { state } = useLocation()
     const { nano } = useParams()
     return (
-        <main className="bg-black h-screen  " >
+        <main className="bg-black h-screen font-SFPRODISPLAYMEDIUM " >
             <div className="max-w-[1240px] mx-auto" >
 
                 {

@@ -13,4 +13,4 @@ export const shopApi = createApi({
     })
     
 })
-export const {useGetshopbyNameQuery} = shopApi
+export const {useGetshopbyNameQuery} = shopApi;

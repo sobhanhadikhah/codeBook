@@ -5,12 +5,12 @@ import { useTitle } from "../../hooks";
 import { useEffect } from "react";
 import { subtotalPrice } from "../../featcures/cartSlice";
 export const CartPage = () => {
-    useTitle(`Carts`)
     const { carts } = useSelector(state => state.cartState);
     const disPatch = useDispatch()
     useEffect(() => {
         disPatch(subtotalPrice());
     }, [carts, disPatch])
+    useTitle(`Carts (${carts.length}) `)
     return (
         <main className="bg-black  " >
             <Transition>

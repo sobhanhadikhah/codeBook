@@ -19,11 +19,11 @@ export const Cart = (props) => {
 
     return (
         <section >
-            <div className=" flex rounded-lg bg-white border sm:flex-row  lg:hover:scale-105  ">
-                <div className="flex  " >
+            <div className=" flex  rounded-lg bg-white border sm:flex-row  lg:hover:scale-105  ">
+                <div className="flex  items-center " >
                     <img
-                        className="m-2 h-24 w-28 rounded-md border object-cover object-center"
-                        src={image}
+                        className="m-2 w-[50px] h-[50px] rounded-md border object-cover object-center"
+                    src={image}
                         alt={title}
                     />
                     <div className="flex w-full flex-col px-4 py-4">

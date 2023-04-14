@@ -11,8 +11,6 @@ export const InputsCard = (props) => {
             </label>
             <div className="relative  ">
                 <input
-
-
                     {...formik.getFieldProps("cardNumber")}
                     type={"text"}
                     className="w-full text-black rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
