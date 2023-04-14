@@ -8,7 +8,7 @@ export const validitionSchema = Yup.object().shape({
     .required("Confirm password is required")
     .oneOf([Yup.ref("password"), null], "Passwords must match"), */
 });
-export const intialVaues = {
+export const intialValues = {
     username:"",
     password:""
 } 
@@ -25,7 +25,7 @@ export const handleOnSubmite = async (value,btnDisable, setBtnDisable) => {
         const { data } = await axios.request(option)
         console.log(data);
         setBtnDisable(true)
-        sessionStorage.setItem(`token`, data.token)
+        localStorage.setItem(`token`, data.token)
         setTimeout(async () => {
             toast.success(`sucsses`)
             window.location = "/";
@@ -39,4 +39,4 @@ export const handleOnSubmite = async (value,btnDisable, setBtnDisable) => {
         toast.error(`somthing wrong please try agine`);
     }
 }
-export const token = sessionStorage.getItem(`token`) 
+export const token = localStorage.getItem(`token`)

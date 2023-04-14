@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { fotterVar } from "../../utils/motion"
 export const Footer = () => {
     return (
-        <footer aria-label="Site Footer" className="bg-white dark:bg-black pt-10  ">
+        <footer aria-label="Site Footer" className="bg-white dark:bg-black pt-10   ">
             <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-md">
                     <strong
@@ -13,11 +13,11 @@ export const Footer = () => {
 
                     <form className="mt-6">
                         <div className="relative max-w-lg">
-                            <label className="sr-only" htmlFor="email"> Email </label>
+                            <label className="sr-only" > Email </label>
 
                             <input
-                                className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pr-32 text-sm font-medium dark:border-gray-700 dark:bg-gray-800 dark:text-white"
-                                id="email"
+                                className="w-full rounded-full  border-gray-200 bg-gray-100 p-4 pr-32 text-sm font-medium dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+
                                 type="email"
                                 placeholder="example@gmail.com"
                             />

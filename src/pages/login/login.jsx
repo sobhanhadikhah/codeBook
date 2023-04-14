@@ -1,6 +1,6 @@
 import { Transition } from "../../components"
 import { FormSignIn } from "./components/form";
-import { handleOnSubmite, intialVaues, validitionSchema } from "../../schema/validitionLogin";
+import { handleOnSubmite, intialValues, validitionSchema } from "../../schema/validitionLogin";
 import { toast } from 'react-toastify';
 import { useFormik } from "formik";
 import axios from "axios";
@@ -12,7 +12,7 @@ export const Login = () => {
     const navigate = useNavigate()
     const [btnDisable, setBtnDisable] = useState(false)
     const formik = useFormik({
-        initialValues: intialVaues,
+        initialValues: intialValues,
         validationSchema: validitionSchema,
         onSubmit: (value) => {
             handleOnSubmite(value, btnDisable, setBtnDisable)

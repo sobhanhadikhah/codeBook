@@ -18,7 +18,7 @@ export const Header = () => {
     const [serchToggle, setSerchToggle] = useState(false);
     const navigate = useNavigate();
     const handleOnLogout = () => {
-        sessionStorage.removeItem(`token`)
+        localStorage.removeItem(`token`)
         toast.error(`loged out !`)
         //navigate(`login`)
         setNavToggle(false)

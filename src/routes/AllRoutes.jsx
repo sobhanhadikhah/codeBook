@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import { Err404, HomePage, Products, ProductsDetaile, CategoryItemsPage, Login, CartPage } from "../pages"
+import { Err404, HomePage, Products, ProductsDetaile, CategoryItemsPage, Login, CartPage, OrderPage } from "../pages"
 import { AnimatePresence } from "framer-motion"
 import { ProtechtedRoutes } from "./ProtechtedRoutes"
 import { AccessRouteHigh } from "./AccessRouteHigh"
@@ -13,6 +13,7 @@ const AllRoutes = () => {
         <Route path="/productsbycategory/:category" element={<CategoryItemsPage />} />
         <Route path="login" element={<AccessRouteHigh><Login /></AccessRouteHigh>} />
         <Route path="carts" element={<ProtechtedRoutes path={`/login`} ><CartPage /></ProtechtedRoutes>} />
+        <Route path="/order/:nano" element={<OrderPage />} />
         <Route path="*" element={<Err404 />} />
       </Routes>
     </AnimatePresence>

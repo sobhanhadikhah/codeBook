@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import { stringify } from "postcss";
 import { toast } from "react-toastify";
 const initialState = {
     products:[],
@@ -124,6 +125,11 @@ const cartsSlice = createSlice({
                 )                    
                 state.totalPrice = total
                 state.totalQuintity = cartQuentity
+        },
+        cardClear: (state,action) =>{
+            state.carts = [];
+            localStorage.setItem(`carts`,JSON.stringify(state.carts));
+        
         }
         
 
@@ -133,5 +139,5 @@ const cartsSlice = createSlice({
     
 
 })
-export const {addToProducts,subtotalPrice,addToFavorites,removeFromFavorite,handleFilter,addToCart,removeFromCart,hardRemove} = cartsSlice.actions
+export const {addToProducts,cardClear,subtotalPrice,addToFavorites,removeFromFavorite,handleFilter,addToCart,removeFromCart,hardRemove} = cartsSlice.actions
 export default cartsSlice.reducer;

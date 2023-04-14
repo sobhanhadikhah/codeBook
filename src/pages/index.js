@@ -5,3 +5,4 @@ export {ProductsDetaile} from "./productsDetaile/productsDetaile";
 export {CategoryItemsPage} from "./categoryItems/CategoryItemsPage";
 export {Login} from "./login/login";
 export {CartPage} from "./cardInterface/cardInterface";
+export {OrderPage} from "./orderPage/OrderPage";

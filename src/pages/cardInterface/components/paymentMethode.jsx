@@ -2,12 +2,12 @@ import { useFormik } from 'formik'
 import { CheckOut } from './checkOut'
 import { SubTotal } from './subTotal'
 import { useSelector } from 'react-redux'
-import { intialValuesCheckout, validitionPayment } from '../../../schema/validitionPayment'
+import { intialValuesPayment, validitionPayment } from '../../../schema/validitionPayment'
 export const PaymentMethode = (props) => {
     const { CloseDialog, activeDialog, setActiveDialog, dialog, carts } = props
     const { totalPrice } = useSelector(state => state.cartState)
     const formik = useFormik({
-        initialValues: intialValuesCheckout,
+        initialValues: intialValuesPayment,
         validationSchema: validitionPayment,
         onSubmit: (value) => {
             console.log(value);
@@ -48,7 +48,7 @@ export const PaymentMethode = (props) => {
                         </div>
                         <input
                             {...formik.getFieldProps(`zip`)}
-                            type="number"
+                            type="text"
                             className="flex-shrink-0 rounded-md border bg-black border-gray-200  px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                             placeholder="ZIP"
                         />

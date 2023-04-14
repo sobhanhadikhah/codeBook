@@ -21,7 +21,7 @@ export const ShopibgPage = (props) => {
     const handleOnRemove = () => {
         disPatch(removeFromCart({ id: id, price: price, }))
     }
-
+    
     const [isInCard, setIsInCard] = useState(false);
     const { carts } = useSelector(state => state.cartState)
     useEffect(() => {

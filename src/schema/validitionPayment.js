@@ -4,7 +4,7 @@ export const validitionPayment = yup.object().shape({
     zip: yup.number().required(),
     
 })
-export const intialValuesCheckout = {
+export const intialValuesPayment = {
     address: "",
-    zip:null
+    zip:""
 }
