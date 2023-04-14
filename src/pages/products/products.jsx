@@ -1,12 +1,11 @@
 import { useDispatch, useSelector, } from "react-redux";
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { FilterBar } from './components';
 import { useTitle } from '../../hooks';
 import { useGetshopbyNameQuery } from '../../services/fakeShop';
 import { Loading, ProductsCart, Transition } from '../../components'
 import { CgMenuGridO } from 'react-icons/cg'
 import { addToProducts } from "../../featcures/cartSlice";
-import { store } from "../../featcures/store";
 export const Products = () => {
 
     const dispatch = useDispatch();
