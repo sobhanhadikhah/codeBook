@@ -1,3 +1,5 @@
+/* my framer motion Varient */
+
 export const err404Var = {
     hidden:{
         opacity:0,

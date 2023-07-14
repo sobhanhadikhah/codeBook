@@ -13,8 +13,15 @@ store.dispatch(subtotalPrice());
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
+      {/* redux store and Provider */}
       <Provider store={store} >
+        {/*
+         this components is for make if we scrolling
+         and change our route make scroll view go up or
+          current last place   
+          */}
         <ScrollToTop />
+        
         <ToastContainer position='bottom-right' />
         <App />
       </Provider>

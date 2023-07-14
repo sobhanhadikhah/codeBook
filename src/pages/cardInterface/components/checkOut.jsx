@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { GrFormClose } from 'react-icons/gr';
 import { AiFillLock } from "react-icons/ai";
 import { BsFillCreditCard2BackFill } from "react-icons/bs";
@@ -18,9 +17,6 @@ export const CheckOut = ({ activeDialog, setActiveDialog, totalPrice }) => {
     const navigate = useNavigate();
     const handleOnSubmiteCheckout = (value) => {
         try {
-            console.log(`its ok`);
-            console.log(value);
-
             // throw new Error("somthing Wrong")
             navigate(`/order/${nanoid()}`, { state: { status: true, data: value } })
             disPatch(cardClear());

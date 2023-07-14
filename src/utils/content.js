@@ -1,3 +1,4 @@
+/* my some text values to makee code minfy in code place */
 export const NavbarContent = [
     {
         id:"home",

@@ -1,5 +1,4 @@
-import axios from "axios";
-import { toast } from "react-toastify";
+
 import * as Yup from "yup";
 export const validitionSchema = Yup.object().shape({
     username: Yup.string().required().min(4),

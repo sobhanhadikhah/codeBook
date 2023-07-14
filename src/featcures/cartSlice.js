@@ -1,5 +1,5 @@
+/* all redux states and function in my webApp */
 import {createSlice} from "@reduxjs/toolkit";
-import { stringify } from "postcss";
 import { toast } from "react-toastify";
 const initialState = {
     products:[],

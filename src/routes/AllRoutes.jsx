@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion"
 import { ProtechtedRoutes } from "./ProtechtedRoutes"
 import { AccessRouteHigh } from "./AccessRouteHigh"
 const AllRoutes = () => {
+  /* all my route  */
   return (
     <AnimatePresence mode="wait" >
       <Routes>
